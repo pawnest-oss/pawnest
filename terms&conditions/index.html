@@ -69,10 +69,6 @@
   @keyframes wag{0%,100%{transform:rotate(-6deg);}50%{transform:rotate(6deg);}}
   .brand-text h1{font-size:1.5rem; color:var(--brown-dark); letter-spacing:.5px;}
   .brand-text span{font-size:.72rem; color:var(--accent-teal); font-weight:600; display:block;}
-  nav a{margin-left:1.4rem; text-decoration:none; color:var(--brown-dark); font-weight:600; font-size:.95rem; position:relative;}
-  nav a::after{content:''; position:absolute; left:0; bottom:-4px; width:0; height:3px; background:var(--accent-red); border-radius:3px; transition:width .25s;}
-  nav a:hover::after{width:100%;}
-  .nav-toggle{display:none;}
 
   .page-hero{
     position:relative; z-index:1; text-align:center; padding:3rem 5% 2.4rem;
@@ -179,20 +175,6 @@
   body.bn .lang-switch [data-lang="bn"]{display:inline-flex;}
 
   @media(max-width:760px){
-    nav{
-      position:absolute; top:calc(100% + 8px); right:5%;
-      background:var(--cream); flex-direction:column; width:200px;
-      box-shadow:0 12px 28px rgba(90,58,20,.22); border-radius:16px;
-      padding:1rem 1.2rem;
-      opacity:0; visibility:hidden; pointer-events:none;
-      transform:translateY(-8px);
-      transition:opacity .25s ease, transform .25s ease, visibility .25s;
-      max-height:70vh; overflow-y:auto;
-      z-index:60;
-    }
-    nav.open{opacity:1; visibility:visible; pointer-events:auto; transform:translateY(0);}
-    nav a{margin:.6rem 0; display:block;}
-    .nav-toggle{display:block; background:none; border:none; font-size:1.5rem; color:var(--brown-dark); cursor:pointer;}
     .terms-list li{padding-left:2.8rem;}
     .terms-list li::before{width:2rem; height:2rem; font-size:.85rem;}
   }
@@ -206,21 +188,13 @@
 <div class="paw-field" id="pawField"></div>
 
 <header>
-  <a class="brand" href="index.html">
+  <a class="brand" href="https://pawnest.arnetworkhouse.in">
     <img src="https://raw.githubusercontent.com/pawnest-oss/pawnest/refs/heads/main/IMG-20260716-WA0001.jpg" alt="Paw Nest logo">
     <div class="brand-text">
       <h1>PAW NEST</h1>
       <span>Where Every Little Paw Feels at Home</span>
     </div>
   </a>
-  <button class="nav-toggle" id="navToggle"><i class="fa-solid fa-bars"></i></button>
-  <nav id="navMenu">
-    <a href="index.html#services">Services</a>
-    <a href="index.html#gallery">Gallery</a>
-    <a href="index.html#location">Location</a>
-    <a href="index.html#contact">Contact</a>
-    <a href="#top">Terms</a>
-  </nav>
 </header>
 
 <section class="page-hero" id="top">
@@ -288,7 +262,7 @@
   </div>
 
   <div class="back-row">
-    <a class="btn btn-primary" href="index.html"><i class="fa-solid fa-arrow-left"></i> <span data-lang="en">Back to Home</span><span data-lang="bn">হোমে ফিরে যান</span></a>
+    <a class="btn btn-primary" href="https://pawnest.arnetworkhouse.in"><i class="fa-solid fa-arrow-left"></i> <span data-lang="en">Back to Home</span><span data-lang="bn">হোমে ফিরে যান</span></a>
   </div>
 </section>
 
@@ -319,11 +293,6 @@
     p.style.animationDelay = (Math.random()*14)+'s';
     field.appendChild(p);
   }
-  const navToggle = document.getElementById('navToggle');
-  const navMenu = document.getElementById('navMenu');
-  navToggle.addEventListener('click', ()=> navMenu.classList.toggle('open'));
-  navMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>navMenu.classList.remove('open')));
-
   function setLang(lang){
     const body = document.body;
     const btnEn = document.getElementById('btnEn');
